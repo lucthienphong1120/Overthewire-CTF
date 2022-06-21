@@ -1,52 +1,141 @@
-* ssh bandit0@bandit.labs.overthewire.org -p 2220
-? topic: file and folder
-- - - - - - - - - -
-> bandit0		bandit0
+# Bandit OverTheWire CTF walkthrough
+
+Home page: https://overthewire.org/wargames/bandit/
+
+## Connect the game
+
+```bash
+ssh bandit<level>@bandit.labs.overthewire.org -p 2220
+```
+with `<level>` is your level 's room
+
+```bash
+ssh bandit<level>@localhost
+```
+to connect to next level
+
+## Notes for game
+
++ most useful command is `ls -la`
++ useful resources are `man`, `help`, `--help`, `-h`, google search, wiki
++ directory store password 's room is `/etc/bandit_pass/bandit<level>` (can see, but can't open)
++ directory store file 's room is `/home/bandit<level>`
++ can't work on [~] (/home/user) because of restricted permissions
++ you should create a new folder for each level in /tmp/ to work because you will have full control with it
+
+## Level 0-6
+
+> topic: file and folder
+
+| Username | Password |
+| :--- | :--- |
+| bandit0 | bandit0 |
+
+```bash
 cat readme
-- - - - - - - - - -
-* ssh user@localhost
-- - - - - - - - - -
-> bandit1		boJ9jbbUNNfktd78OOpsqOltutMc3MY1
-cat ./-
-- - - - - - - - - -
-> bandit 2	CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit1 | boJ9jbbUNNfktd78OOpsqOltutMc3MY1 |
+
+```
+cat ./- # or cat < -
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit2 | CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9 |
+
+```
 cat "spaces in this filename"
-- - - - - - - - - -
-> bandit3		UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
-cd inhere/
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit3 | UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK |
+
+```
+cd inhere
 cat .hidden
-- - - - - - - - - -
-> bandit4		pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit4 | pIwrPrtPN36QITSp3EQaw936yaFoFgAB |
+
+```
 cd inhere/
 file ./*	# show all file type
-cat ./-file07
-- - - - - - - - - -
-> bandi5		koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+cat ./-file07   # or cat < -file07
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit5 | koReBOKuIDDepwhWk7jZC0RTdopnAYKh |
+
+```
 find -type f -size 1033c ! -executable
 cat ./maybehere07/.file2
-- - - - - - - - - -
-> bandit6		DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit6 | DXjZPULLxYr17uwoI01bNLQbtFemEgo7 |
+
+```
 find / -user bandit7 -group bandit6 -size 33c 2>/dev/null	# turn error log into /dev/null
 cat /var/lib/dpkg/info/bandit7.password
-- - - - - - - - - -
-? topic: handle file data
-- - - - - - - - - -
-> bandit7		HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+```
+## Level 7-12
+
+> topic: handle file data
+
+| Username | Password |
+| :--- | :--- |
+| bandit7 | HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs |
+
+```
 grep "millionth" data.txt
-- - - - - - - - - -
-> bandit8		cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit8 | cvX2JJa4CFALtqS87jk27qwqGhBM9plV |
+
+```
 sort data.txt | uniq -u	# sort to use uniq and -u to find the line appear once
-- - - - - - - - - -
-> bandit9		UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit9 | UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR |
+
+```
 strings data.txt | grep "=="	# output strings available and grep ==
-- - - - - - - - - -
-> bandit10	truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit10 | truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk |
+
+```
 base64 -d data.txt	# -d mean decode
-- - - - - - - - - -
-> bandit11	IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit11 | IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR |
+
+```
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'	# see rot13 on wikipedia
-- - - - - - - - - -
-> bandit12	5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit12 | 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu |
+
+```
 mkdir /tmp/hello12
 cp data.txt /tmp/hello12
 cd /tmp/hello12	# must work at this place, because home don't have permission
@@ -72,61 +161,119 @@ mv data8.bin data8.gz
 gzip -d data8.gz
 file data8
 cat data8
-- - - - - - - - - -
-? topic: network protocol
-- - - - - - - - - -
-> bandit13	8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+```
+
+# Level 13-20
+
+> topic: network protocol
+
+| Username | Password |
+| :--- | :--- |
+| bandit13 | 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL |
+
+```
 ssh -i sshkey.private bandit14@localhost
 cat /etc/bandit_pass/bandit14
-- - - - - - - - - -
-> bandit14	4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit14 | 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e |
+
+```
 cat /etc/bandit_pass/bandit14 | nc localhost 30000	# submitting the password of the current level to port 30000 on localhost
-- - - - - - - - - -
-> bandit15	BfMYroe26WYalil77FoDi9qh59eK5xNr
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit15 | BfMYroe26WYalil77FoDi9qh59eK5xNr |
+
+```
 openssl s_client -ign_eof -connect localhost:30001
 BfMYroe26WYalil77FoDi9qh59eK5xNr	# type password and enter
-- - - - - - - - - -
-> bandit16	cluFn7wTiGryunymYOu4RcffSxQluehd
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit16 | cluFn7wTiGryunymYOu4RcffSxQluehd |
+
+```
 nmap -sV -p 31000-32000 localhost	# -p is range of ports, -sV is service
 openssl s_client --connect localhost:31790
 cluFn7wTiGryunymYOu4RcffSxQluehd	# type password and enter
 echo key > key.private
 ssh -i key.private bandit17@localhost
 cat /etc/bandit_pass/bandit17
-- - - - - - - - - -
-> bandit17	xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit17 | xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn |
+
+```
 diff passwords.old passwords.new
-- - - - - - - - - -
-> bandit18	kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit18 | kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd |
+
+```
 ssh bandit18@localhost -t /bin/sh	# run pseudo-terminal on target machine
 cat readme
-- - - - - - - - - -
-> bandit19	IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit19 | IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x |
+
+```
+ls
 ./bandit20-do
 ./bandit20-do cat /etc/bandit_pass/bandit20
-- - - - - - - - - -
-> bandit20	GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit20 | GbKksEFF4yrVs6il55v6gwY5aVje5f0j |
+
+```
 echo 'GbKksEFF4yrVs6il55v6gwY5aVje5f0j' | nc -l -p 1234 &	# send password to server port 1234 (-l is listen mode)
 ./suconnect 1234	# conect to our netcat server
-- - - - - - - - - -
-? topic: cron jobs
-- - - - - - - - - -
-> bandit21	gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+```
+
+# Level 21-26
+
+> topic: cron jobs & shell script
+
+| Username | Password |
+| :--- | :--- |
+| bandit21 | gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr |
+
+```
 ls /etc/cron.d
 cat /etc/cron.d/cronjob_bandit22
 cat /usr/bin/cronjob_bandit22.sh
 cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
-- - - - - - - - - -
-> bandit22	Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit22 | Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI |
+
+```
 ls /etc/cron.d
 cat /etc/cron.d/cronjob_bandit23
 cat /usr/bin/cronjob_bandit23.sh
 echo I am user bandit23 | md5sum | cut -d ' ' -f 1	# use hash to file mytarget
 cat /tmp/8ca319486bfbbc3663ea0fbe81326349
-- - - - - - - - - -
-? topic: shell script
-- - - - - - - - - -
-> bandit23	jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit23 | jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n |
+
+```
 ls /etc/cron.d
 cat /etc/cron.d/cronjob_bandit24
 cat /usr/bin/cronjob_bandit24.sh
@@ -141,23 +288,43 @@ cp level23.sh /var/spool/bandit24
 # wait 1 min for cron job run
 ls -la
 cat password
-- - - - - - - - - -
-> bandit24	UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit24 | UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ |
+
+```
 nc localhost 30002	# connect to port 30002
 mkdir /tmp/hello24
 cd /tmp/hello24
-echo "#!/bin/bash
+vi level24.sh
+```
+```
+#!/bin/bash
+
 for i in {0000..9999};
+
 do
+
     echo "UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i"
-done | nc localhost 30002" > level24.sh
+    
+done | nc localhost 30002"
+```
+```
 bash level24.sh
-- - - - - - - - - -
-> bandit25	uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit25 | uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG |
+
+```
 ls
 ssh -i bandit26.sshkey bandit26@localhost
 cat /etc/passwd
-`
+```
+```
 bandit0:x:11000:11000:bandit level 0:/home/bandit0:/bin/bash
 bandit1:x:11001:11001:bandit level 1:/home/bandit1:/bin/bash
 bandit10:x:11010:11010:bandit level 10:/home/bandit10:/bin/bash
@@ -197,16 +364,26 @@ bandit28-git:x:11528:11528::/home/bandit28-git:/usr/bin/git-shell
 bandit29-git:x:11529:11529::/home/bandit29-git:/usr/bin/git-shell
 bandit30-git:x:11530:11530::/home/bandit30-git:/usr/bin/git-shell
 bandit31-git:x:11531:11531::/home/bandit31-git:/usr/bin/git-shell
-`
+```
+```
 cat /usr/bin/showtext
 ? resize terminal to use more mode on linux ?
 ssh -i bandit26.sshkey bandit26@localhost	# enterd more mode
 v	# open vim
+```
+```
 :set shell=/bin/bash
 :shell
+```
+```
 cat /etc/bandit_pass/bandit26
-- - - - - - - - - -
-> bandit26		5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit26 | 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z |
+
+```
 # login in more mode
 v	# open vim
 :set shell=/bin/bash
@@ -215,34 +392,51 @@ ls
 cat text.txt
 ./bandit27-do
 ./bandit27-do cat /etc/bandit_pass/bandit27
-- - - - - - - - - -
-? topic: git
-- - - - - - - - - -
-> bandit27		3ba3118a22e93127a4ed485be72ef5ea
+```
+
+## Level 27-31
+
+> topic: git
+
+| Username | Password |
+| :--- | :--- |
+| bandit27 | 3ba3118a22e93127a4ed485be72ef5ea |
+
+```
 mkdir /tmp/hello27
 cd /tmp/hello27
 git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
-3ba3118a22e93127a4ed485be72ef5ea
+3ba3118a22e93127a4ed485be72ef5ea    # type password and enter
 cd repo
 ls
 cat README
-- - - - - - - - - -
-> bandit28		0ef186ac70e04ea33b4c1853d2526fa2
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit28 | 0ef186ac70e04ea33b4c1853d2526fa2 |
+
+```
 mkdir /tmp/hello28
 cd /tmp/hello28
 git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
-0ef186ac70e04ea33b4c1853d2526fa2
+0ef186ac70e04ea33b4c1853d2526fa2    # type password and enter
 cd repo
 ls
 cat README.md
 git log
 git diff c086d11a00c0648d095d04c089786efef5e01264
-- - - - - - - - - -
-> bandit29		bbc96594b4e001778eee9975372716b2
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit29 | bbc96594b4e001778eee9975372716b2 |
+
+```
 mkdir /tmp/hello29
 cd /tmp/hello29
 git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
-bbc96594b4e001778eee9975372716b2
+bbc96594b4e001778eee9975372716b2    # type password and enter
 cd repo
 ls
 cat README.md
@@ -250,12 +444,17 @@ git log
 git branch -a
 git diff remotes/origin/dev
 git diff ...	# try to find other useful info
-- - - - - - - - - -
-> bandit30		5b90576bedb2cc04c86a9e924ce42faf
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit30 | 5b90576bedb2cc04c86a9e924ce42faf |
+
+```
 mkdir /tmp/hello30
 cd /tmp/hello30
 git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
-5b90576bedb2cc04c86a9e924ce42faf
+5b90576bedb2cc04c86a9e924ce42faf    # type password and enter
 cd repo
 ls
 cat README.md
@@ -270,12 +469,17 @@ ls refs/tags
 ls -la refs/tags
 git tag
 git show secret
-- - - - - - - - - -
-> bandit31		47e603bb428404d265f59c42920d81e5
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit31 | 47e603bb428404d265f59c42920d81e5 |
+
+```
 mkdir /tmp/hello31
 cd /tmp/hello31
 git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
-47e603bb428404d265f59c42920d81e5
+47e603bb428404d265f59c42920d81e5    # type password and enter
 cd repo
 ls
 cat README.md
@@ -286,32 +490,41 @@ echo 'May I come in?' > key.txt
 git add .
 git commit -m "hello"
 git push
-47e603bb428404d265f59c42920d81e5
-- - - - - - - - - -
-? topic: other
-- - - - - - - - - -
-> bandit32		56a9bf19c63d650ce78e6ec0354ee45e
+47e603bb428404d265f59c42920d81e5    # type password and enter
+```
+
+## Level 32-33
+
+> topic: other
+
+| Username | Password |
+| :--- | :--- |
+| bandit32 | 56a9bf19c63d650ce78e6ec0354ee45e |
+
+```
 # all convert to uppercase but can use $ to see variable
-# return bandit31
+Ctrl+C    # return bandit31
 ls -la /home/bandit32/
 # login again
 $0	# name of script (run it)
 ls -la
 cat /etc/bandit_pass/bandit33
-- - - - - - - - - -
-> bandit33		c9c3199ddf4121b10cf581a98d51caee
+```
+
+| Username | Password |
+| :--- | :--- |
+| bandit33 | c9c3199ddf4121b10cf581a98d51caee |
+
+```
 ls
 cat README.txt
+```
 
+This is last level for now
 
 ^^ finished ^^ thank you ^^
 
+## Author
 
-
-
-
-
-
-
-
-
++ [Facebook](https://www.facebook.com/profile.php?id=100045406261491)
++ [Github](https://github.com/lucthienphong1120)
