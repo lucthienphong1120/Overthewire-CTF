@@ -39,7 +39,7 @@ cat readme
 | :--- | :--- |
 | bandit1 | boJ9jbbUNNfktd78OOpsqOltutMc3MY1 |
 
-```
+```bash
 cat ./- # or cat < -
 ```
 
@@ -47,7 +47,7 @@ cat ./- # or cat < -
 | :--- | :--- |
 | bandit2 | CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9 |
 
-```
+```bash
 cat "spaces in this filename"
 ```
 
@@ -55,7 +55,7 @@ cat "spaces in this filename"
 | :--- | :--- |
 | bandit3 | UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK |
 
-```
+```bash
 cd inhere
 cat .hidden
 ```
@@ -64,7 +64,7 @@ cat .hidden
 | :--- | :--- |
 | bandit4 | pIwrPrtPN36QITSp3EQaw936yaFoFgAB |
 
-```
+```bash
 cd inhere/
 file ./*	# show all file type
 cat ./-file07   # or cat < -file07
@@ -74,7 +74,7 @@ cat ./-file07   # or cat < -file07
 | :--- | :--- |
 | bandit5 | koReBOKuIDDepwhWk7jZC0RTdopnAYKh |
 
-```
+```bash
 find -type f -size 1033c ! -executable
 cat ./maybehere07/.file2
 ```
@@ -83,7 +83,7 @@ cat ./maybehere07/.file2
 | :--- | :--- |
 | bandit6 | DXjZPULLxYr17uwoI01bNLQbtFemEgo7 |
 
-```
+```bash
 find / -user bandit7 -group bandit6 -size 33c 2>/dev/null	# turn error log into /dev/null
 cat /var/lib/dpkg/info/bandit7.password
 ```
@@ -95,7 +95,7 @@ cat /var/lib/dpkg/info/bandit7.password
 | :--- | :--- |
 | bandit7 | HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs |
 
-```
+```bash
 grep "millionth" data.txt
 ```
 
@@ -103,7 +103,7 @@ grep "millionth" data.txt
 | :--- | :--- |
 | bandit8 | cvX2JJa4CFALtqS87jk27qwqGhBM9plV |
 
-```
+```bash
 sort data.txt | uniq -u	# sort to use uniq and -u to find the line appear once
 ```
 
@@ -111,7 +111,7 @@ sort data.txt | uniq -u	# sort to use uniq and -u to find the line appear once
 | :--- | :--- |
 | bandit9 | UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR |
 
-```
+```bash
 strings data.txt | grep "=="	# output strings available and grep ==
 ```
 
@@ -119,7 +119,7 @@ strings data.txt | grep "=="	# output strings available and grep ==
 | :--- | :--- |
 | bandit10 | truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk |
 
-```
+```bash
 base64 -d data.txt	# -d mean decode
 ```
 
@@ -127,7 +127,7 @@ base64 -d data.txt	# -d mean decode
 | :--- | :--- |
 | bandit11 | IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR |
 
-```
+```bash
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'	# see rot13 on wikipedia
 ```
 
@@ -135,7 +135,7 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'	# see rot13 on wikipedia
 | :--- | :--- |
 | bandit12 | 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu |
 
-```
+```bash
 mkdir /tmp/hello12
 cp data.txt /tmp/hello12
 cd /tmp/hello12	# must work at this place, because home don't have permission
@@ -171,7 +171,7 @@ cat data8
 | :--- | :--- |
 | bandit13 | 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL |
 
-```
+```bash
 ssh -i sshkey.private bandit14@localhost
 cat /etc/bandit_pass/bandit14
 ```
@@ -180,7 +180,7 @@ cat /etc/bandit_pass/bandit14
 | :--- | :--- |
 | bandit14 | 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e |
 
-```
+```bash
 cat /etc/bandit_pass/bandit14 | nc localhost 30000	# submitting the password of the current level to port 30000 on localhost
 ```
 
@@ -188,7 +188,7 @@ cat /etc/bandit_pass/bandit14 | nc localhost 30000	# submitting the password of 
 | :--- | :--- |
 | bandit15 | BfMYroe26WYalil77FoDi9qh59eK5xNr |
 
-```
+```bash
 openssl s_client -ign_eof -connect localhost:30001
 BfMYroe26WYalil77FoDi9qh59eK5xNr	# type password and enter
 ```
@@ -197,7 +197,7 @@ BfMYroe26WYalil77FoDi9qh59eK5xNr	# type password and enter
 | :--- | :--- |
 | bandit16 | cluFn7wTiGryunymYOu4RcffSxQluehd |
 
-```
+```bash
 nmap -sV -p 31000-32000 localhost	# -p is range of ports, -sV is service
 openssl s_client --connect localhost:31790
 cluFn7wTiGryunymYOu4RcffSxQluehd	# type password and enter
@@ -210,7 +210,7 @@ cat /etc/bandit_pass/bandit17
 | :--- | :--- |
 | bandit17 | xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn |
 
-```
+```bash
 diff passwords.old passwords.new
 ```
 
@@ -218,7 +218,7 @@ diff passwords.old passwords.new
 | :--- | :--- |
 | bandit18 | kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd |
 
-```
+```bash
 ssh bandit18@localhost -t /bin/sh	# run pseudo-terminal on target machine
 cat readme
 ```
@@ -227,8 +227,8 @@ cat readme
 | :--- | :--- |
 | bandit19 | IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x |
 
-```
-ls
+```bash
+ls -la
 ./bandit20-do
 ./bandit20-do cat /etc/bandit_pass/bandit20
 ```
@@ -237,7 +237,7 @@ ls
 | :--- | :--- |
 | bandit20 | GbKksEFF4yrVs6il55v6gwY5aVje5f0j |
 
-```
+```bash
 echo 'GbKksEFF4yrVs6il55v6gwY5aVje5f0j' | nc -l -p 1234 &	# send password to server port 1234 (-l is listen mode)
 ./suconnect 1234	# conect to our netcat server
 ```
@@ -250,7 +250,7 @@ echo 'GbKksEFF4yrVs6il55v6gwY5aVje5f0j' | nc -l -p 1234 &	# send password to ser
 | :--- | :--- |
 | bandit21 | gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr |
 
-```
+```bash
 ls /etc/cron.d
 cat /etc/cron.d/cronjob_bandit22
 cat /usr/bin/cronjob_bandit22.sh
@@ -261,7 +261,7 @@ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 | :--- | :--- |
 | bandit22 | Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI |
 
-```
+```bash
 ls /etc/cron.d
 cat /etc/cron.d/cronjob_bandit23
 cat /usr/bin/cronjob_bandit23.sh
@@ -273,7 +273,7 @@ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
 | :--- | :--- |
 | bandit23 | jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n |
 
-```
+```bash
 ls /etc/cron.d
 cat /etc/cron.d/cronjob_bandit24
 cat /usr/bin/cronjob_bandit24.sh
@@ -294,7 +294,7 @@ cat password
 | :--- | :--- |
 | bandit24 | UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ |
 
-```
+```bash
 nc localhost 30002	# connect to port 30002
 mkdir /tmp/hello24
 cd /tmp/hello24
@@ -311,7 +311,7 @@ do
     
 done | nc localhost 30002"
 ```
-```
+```bash
 bash level24.sh
 ```
 
@@ -319,7 +319,7 @@ bash level24.sh
 | :--- | :--- |
 | bandit25 | uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG |
 
-```
+```bash
 ls
 ssh -i bandit26.sshkey bandit26@localhost
 cat /etc/passwd
@@ -365,7 +365,7 @@ bandit29-git:x:11529:11529::/home/bandit29-git:/usr/bin/git-shell
 bandit30-git:x:11530:11530::/home/bandit30-git:/usr/bin/git-shell
 bandit31-git:x:11531:11531::/home/bandit31-git:/usr/bin/git-shell
 ```
-```
+```bash
 cat /usr/bin/showtext
 ? resize terminal to use more mode on linux ?
 ssh -i bandit26.sshkey bandit26@localhost	# enterd more mode
@@ -375,7 +375,7 @@ v	# open vim
 :set shell=/bin/bash
 :shell
 ```
-```
+```bash
 cat /etc/bandit_pass/bandit26
 ```
 
@@ -383,7 +383,7 @@ cat /etc/bandit_pass/bandit26
 | :--- | :--- |
 | bandit26 | 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z |
 
-```
+```bash
 # login in more mode
 v	# open vim
 :set shell=/bin/bash
@@ -402,7 +402,7 @@ cat text.txt
 | :--- | :--- |
 | bandit27 | 3ba3118a22e93127a4ed485be72ef5ea |
 
-```
+```bash
 mkdir /tmp/hello27
 cd /tmp/hello27
 git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
@@ -416,7 +416,7 @@ cat README
 | :--- | :--- |
 | bandit28 | 0ef186ac70e04ea33b4c1853d2526fa2 |
 
-```
+```bash
 mkdir /tmp/hello28
 cd /tmp/hello28
 git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
@@ -432,7 +432,7 @@ git diff c086d11a00c0648d095d04c089786efef5e01264
 | :--- | :--- |
 | bandit29 | bbc96594b4e001778eee9975372716b2 |
 
-```
+```bash
 mkdir /tmp/hello29
 cd /tmp/hello29
 git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
@@ -450,7 +450,7 @@ git diff ...	# try to find other useful info
 | :--- | :--- |
 | bandit30 | 5b90576bedb2cc04c86a9e924ce42faf |
 
-```
+```bash
 mkdir /tmp/hello30
 cd /tmp/hello30
 git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
@@ -475,7 +475,7 @@ git show secret
 | :--- | :--- |
 | bandit31 | 47e603bb428404d265f59c42920d81e5 |
 
-```
+```bash
 mkdir /tmp/hello31
 cd /tmp/hello31
 git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
@@ -501,7 +501,7 @@ git push
 | :--- | :--- |
 | bandit32 | 56a9bf19c63d650ce78e6ec0354ee45e |
 
-```
+```bash
 # all convert to uppercase but can use $ to see variable
 Ctrl+C    # return bandit31
 ls -la /home/bandit32/
@@ -515,7 +515,7 @@ cat /etc/bandit_pass/bandit33
 | :--- | :--- |
 | bandit33 | c9c3199ddf4121b10cf581a98d51caee |
 
-```
+```bash
 ls
 cat README.txt
 ```
