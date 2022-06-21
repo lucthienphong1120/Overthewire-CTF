@@ -12,7 +12,7 @@ with `<level>` is your level 's room
 ```bash
 ssh bandit<level>@localhost
 ```
-to connect to next level
+to connect to next level (if you already in the game)
 
 ## Notes for game
 
