@@ -1,4 +1,4 @@
-# [Bandit](https://overthewire.org/wargames/bandit/) OverTheWire CTF walkthrough
+# [Bandit](https://overthewire.org/wargames/bandit/) OverTheWire CTF writeups
 
 Home page: https://overthewire.org/wargames/bandit/
 
