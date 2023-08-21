@@ -4,27 +4,20 @@ Home page: https://overthewire.org/wargames/natas/
 
 ## Connect the game
 
-```http
+```
 http://natas<level>.natas.labs.overthewire.org
 ```
 with `<level>` is your level's room
 
 + no SSH login
 + all passwords are also stored in `/etc/natas_webpass/`
-+ 
 
 ## Notes for game
 
-+ most useful command is `ls -la`
-+ useful resources are `man`, `help`, `--help`, `-h`, google search, wiki
-+ directory store password 's room is `/etc/bandit_pass/bandit<level>` (can see, but can't open)
-+ directory store file 's room is `/home/bandit<level>`
-+ can't work on [~] (/home/user) because of restricted permissions
-+ you should create a new folder for each level in /tmp/ to work because you will have full control with it
++ view source, devtools
++ Burpsuite skills
 
-## Level 0-3
-
-> topic: basic
+## Walkthrough
 
 | Username | Password |
 | :--- | :--- |
@@ -56,6 +49,16 @@ http://natas2.natas.labs.overthewire.org/files/users.txt
 | :--- | :--- |
 | natas3 | G6ctbMJ5Nb4cbFwhpMPSvxGHhQ7I6W8Q |
 
+```
+Ctrl+U to view source
+check /robots.txt because google will find it
+http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt
+```
+
+| Username | Password |
+| :--- | :--- |
+| natas4 | tKOcJIbzM4lTs8hbCmzn5Zr4434fGZQm |
+
 ## Level 4-
 
 > topic: burpsuite
@@ -63,12 +66,79 @@ http://natas2.natas.labs.overthewire.org/files/users.txt
 ```
 open BurpSuite, catch requests
 click Refresh
-change Referer header to http://natas5.natas.labs.overthewire.org/
+change Referer: http://natas5.natas.labs.overthewire.org/
 ```
 
 | Username | Password |
 | :--- | :--- |
-| natas4 | Z0NsrtIkJoKALBCLi5eqFfcRN82Au2oD |
+| natas5 | Z0NsrtIkJoKALBCLi5eqFfcRN82Au2oD |
+
+```
+open BurpSuite, catch requests
+change Cookie: loggedin=1
+```
+
+| Username | Password |
+| :--- | :--- |
+| natas6 | fOIvE0MDtPTgRhqmmvvAOt2EfXR6uQgR |
+
+```
+check sourcecode
+http://natas6.natas.labs.overthewire.org/includes/secret.inc
+input FOEIUWGHFEEUHOFUOIU
+```
+
+| Username | Password |
+| :--- | :--- |
+| natas7 | jmxSiH3SP6Sonf8dv66ng8v1cIEdjXWr |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
