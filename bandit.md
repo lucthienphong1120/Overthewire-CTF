@@ -16,16 +16,11 @@ to connect to next level (if you already in the game)
 
 ## Notes for game
 
-+ most useful command is `ls -la`
-+ useful resources are `man`, `help`, `--help`, `-h`, google search, wiki
-+ directory store password 's room is `/etc/bandit_pass/bandit<level>` (can see, but can't open)
-+ directory store file 's room is `/home/bandit<level>`
++ directory store password's room is `/etc/bandit_pass/bandit<level>` (can see, but can't open)
 + can't work on [~] (/home/user) because of restricted permissions
 + you should create a new folder for each level in /tmp/ to work because you will have full control with it
 
-## Level 0-6
-
-> topic: file and folder
+## Walkthrough
 
 | Username | Password |
 | :--- | :--- |
@@ -87,9 +82,6 @@ cat ./maybehere07/.file2
 find / -user bandit7 -group bandit6 -size 33c 2>/dev/null	# turn error log into /dev/null
 cat /var/lib/dpkg/info/bandit7.password
 ```
-## Level 7-12
-
-> topic: handle file data
 
 | Username | Password |
 | :--- | :--- |
@@ -162,10 +154,6 @@ gzip -d data8.gz
 file data8
 cat data8
 ```
-
-# Level 13-20
-
-> topic: network protocol
 
 | Username | Password |
 | :--- | :--- |
@@ -242,10 +230,6 @@ echo 'GbKksEFF4yrVs6il55v6gwY5aVje5f0j' | nc -l -p 1234 &	# send password to ser
 ./suconnect 1234	# conect to our netcat server
 ```
 
-# Level 21-26
-
-> topic: cron jobs & shell script
-
 | Username | Password |
 | :--- | :--- |
 | bandit21 | gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr |
@@ -304,11 +288,8 @@ vi level24.sh
 #!/bin/bash
 
 for i in {0000..9999};
-
 do
-
     echo "UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i"
-    
 done | nc localhost 30002"
 ```
 ```bash
@@ -393,10 +374,6 @@ cat text.txt
 ./bandit27-do
 ./bandit27-do cat /etc/bandit_pass/bandit27
 ```
-
-## Level 27-31
-
-> topic: git
 
 | Username | Password |
 | :--- | :--- |
@@ -529,12 +506,3 @@ In the meantime, you could play some of our other wargames.
 
 If you have an idea for an awesome new level, please let us know!
 ```
-
-This is last level for now
-
-**^^ finished ^^ thank you ^^**
-
-## Author
-
-+ [Facebook](https://www.facebook.com/profile.php?id=100045406261491)
-+ [Github](https://github.com/lucthienphong1120)
